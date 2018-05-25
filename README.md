@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Day 6
+# Day 9
 
 There are separate branches for Segment 1 and Segment 2 in this repository. Both segments include two things:
 
