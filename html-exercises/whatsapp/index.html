@@ -11,6 +11,13 @@ It should open the whatsapp app on mobile and the message should appear in the a
   <title>Document</title>
 </head>
 <body>
-  
+    <script> jobValue = document.getElementById('msg').value </script>
+    Messege: <input type="text" name="msg"><br>
+    
+    <button>
+        <a href="https://web.whatsapp.com/send?text="`${jobValue}`>
+          WhatsApp
+        </a>
+  </button>
 </body>
 </html>
