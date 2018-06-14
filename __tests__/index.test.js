@@ -6,7 +6,7 @@ const {
   trialDivision,
 } = require('../src/index');
 
-describe('hammingDistance', () => {
+describe.only('hammingDistance', () => {
   it('should throw an error when trying to compare the strings of different lengths', () => {
     const compareStringsOfDifferentLength = () => {
       hammingDistance('a', 'aa');
