@@ -4,13 +4,22 @@ Clicking on the areas should open different link in a new tab. -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Map Image</title>
 </head>
+
 <body>
-  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg/1200px-Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg"
+    alt="A Landscpae Image" usemap="#landscapeMap" />
+  <map name="landscapeMap">
+    <area shape="circle" coords="180, 180, 200" href="https://en.wikipedia.org/wiki/Sky" alt="Great Sky">
+<area shape="rect" coords="200, 400, 700, 1000" href="https://en.wikipedia.org/wiki/Castle" alt="Great Castle">
+    <!-- <area shape="" coords="" href="" alt=""> -->
+  </map>
 </body>
+
 </html>
