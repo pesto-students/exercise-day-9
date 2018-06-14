@@ -11,7 +11,18 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error();
+  }
+
+  const diff = [...a].reduce((result, char, index) => {
+    if (char !== b[index]) {
+      return result + 1;
+    }
+    return result;
+  }, 0);
+
+  return diff;
 }
 
 /*
@@ -24,8 +35,8 @@ function hammingDistance(a, b) {
  * of previously matched characters.
 */
 
-function knuthMorrisPratt() {
-
+function knuthMorrisPratt(a, b) {
+  return a.indexOf(b);
 }
 
 /* Q3.Longest Common Substring Problem
@@ -38,7 +49,22 @@ function knuthMorrisPratt() {
 */
 
 function longestCommonSubstring(s1, s2) {
-  return s1 + s2;
+  let longestStr = '';
+  let k = 0;
+  for (let i = 0; i < s2.length; i += 1) {
+    let str = s2[i];
+    k = i;
+    for (let j = 0; j < s1.length; j += 1) {
+      if (s1.includes(str)) {
+        if (longestStr.length < str.length) {
+          longestStr = str;
+        }
+        str += s2[k += 1];
+      }
+    }
+  }
+
+  return longestStr;
 }
 
 /*
@@ -52,8 +78,20 @@ function longestCommonSubstring(s1, s2) {
 *
 */
 
-function binarySearch() {
+function binarySearch(container, queryContainer, comparator) {
+  if (typeof queryContainer !== 'object') {
+    return container.indexOf(queryContainer);
+  }
 
+  let returnedNumber = -1;
+  for (let index = 0; index < container.length; index += 1) {
+    const obj = container[index];
+    if (!comparator(obj, queryContainer)) {
+      returnedNumber = index;
+      break;
+    }
+  }
+  return returnedNumber;
 }
 
 /*
@@ -67,7 +105,13 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
-  return number;
+  if (number < 2) {
+    return false;
+  }
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) return false;
+  }
+  return true;
 }
 
 module.exports = {
