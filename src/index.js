@@ -11,7 +11,19 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error('Unequal String');
+  }
+  let distance = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) {
+      const charDistance = Math.abs(a.charCodeAt(i) - b.charCodeAt(i));
+      distance += charDistance;
+      break;
+    }
+  }
+
+  return distance;
 }
 
 /*
@@ -67,7 +79,20 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
-  return number;
+  let flag = true;
+  if (number <= 1) {
+    return false;
+  }
+  if (number === 2) {
+    return true;
+  }
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      flag = false;
+      break;
+    }
+  }
+  return flag;
 }
 
 module.exports = {
