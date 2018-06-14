@@ -1,1 +1,16 @@
-Make some complex figures using canvas.
+
+<!doctype html>
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <canvas id="canvas" width="600" height="200" ></canvas>
+        <script>
+            var c = document.getElementById('canvas');
+            var x = c.getContext("2d");
+            x.font = "40px Arial";
+            x.strokeText("Navneet and Rajul", 20, 50);
+        </script>
+    </body>
+</html>
