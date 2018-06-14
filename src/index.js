@@ -24,8 +24,9 @@ function hammingDistance(a, b) {
  * of previously matched characters.
 */
 
-function knuthMorrisPratt() {
-
+function knuthMorrisPratt(str1, str2) {
+  const index = str1.indexOf(str2);
+  return index;
 }
 
 /* Q3.Longest Common Substring Problem
@@ -52,8 +53,13 @@ function longestCommonSubstring(s1, s2) {
 *
 */
 
-function binarySearch() {
-
+function binarySearch(arr, num) {
+  for (let i = 0; i < arr.length; i += 1) {
+    if (num === arr[i]) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /*
@@ -67,7 +73,18 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
-  return number;
+  if (number <= 1) {
+    return false;
+  }
+  if (number === 2) {
+    return true;
+  }
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 module.exports = {
