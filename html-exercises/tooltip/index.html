@@ -1,9 +1,36 @@
 <!-- Add a tooltip to the paragraph below with the text "About Pesto". -->
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+    .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
+</head>
 <body>
 
-<p>Pesto is awesome</p>
+    <div class="tooltip">Pesto is awesome
+        <span class="tooltiptext">About Pesto</span>
+    </div>
 
 </body>
+
 </html>
