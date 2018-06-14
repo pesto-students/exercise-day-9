@@ -11,7 +11,16 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error('The strings should be of equal length');
+  }
+  let count = 0;
+  for (let i = 0; i <= a.length; i += 1) {
+    if (a.charAt(i) !== b.charAt(i)) {
+      count = +1;
+    }
+  }
+  return count;
 }
 
 /*
@@ -25,6 +34,7 @@ function hammingDistance(a, b) {
 */
 
 function knuthMorrisPratt() {
+
 
 }
 
