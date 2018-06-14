@@ -6,15 +6,39 @@
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
 // Q1. Calculate fibonacci number at specific position using Dynamic Programming approach.
-
 function fibonacci(position) {
-  return position;
+  let a = 1;
+  let b = 1;
+  let c = a + b;
+  let temp = position;
+  if (position === 1) return a;
+  else if (position === 2) return b;
+
+  while (temp >= 4) {
+    a = b;
+    b = c;
+    c = a + b;
+    temp -= 1;
+  }
+
+  return c;
 }
 
 // Q2. Compute the least common multiple
+function gcd(a, b) {
+  let x = a;
+  let y = b;
+  while (y) {
+    const t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
 
-function leastCommonMultiple() {
-
+function leastCommonMultiple(a, b) {
+  if (!a || !b) return 0;
+  return Math.abs((a * b) / gcd(a, b));
 }
 
 // Q3. Integer Partition
