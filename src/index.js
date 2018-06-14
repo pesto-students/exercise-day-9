@@ -11,7 +11,13 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  let count = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 /*
@@ -38,7 +44,15 @@ function knuthMorrisPratt() {
 */
 
 function longestCommonSubstring(s1, s2) {
-  return s1 + s2;
+  var longest = "";
+  for (var i = 0; i < s1.length; ++i) {
+    for (var j = 0; j < s2.length; ++j) {
+      if (s1[i] === s2[j]) {
+        var str = s1[i];
+        while(k < s2[j].length) {
+
+        }
+
 }
 
 /*
