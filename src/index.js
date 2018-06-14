@@ -11,7 +11,14 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) throw new Error();
+  let Distance = 0;
+  for (let i = 0; i < a.length; i + 1) {
+    if (a[i] !== b[i]) {
+      Distance += 1;
+    }
+  }
+  return Distance;
 }
 
 /*
