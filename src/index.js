@@ -10,8 +10,7 @@
  * between two sequences.
 */
 
-function hammingDistance(a, b) {
-  return a + b;
+function hammingDistance() {
 }
 
 /*
@@ -24,8 +23,9 @@ function hammingDistance(a, b) {
  * of previously matched characters.
 */
 
-function knuthMorrisPratt() {
-
+function knuthMorrisPratt(a, b) {
+  const result = a.indexOf(b);
+  return result;
 }
 
 /* Q3.Longest Common Substring Problem
