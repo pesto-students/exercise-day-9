@@ -49,7 +49,23 @@ function knuthMorrisPratt(a, b) {
 */
 
 function longestCommonSubstring(s1, s2) {
-  return s1 + s2;
+  let longestStr = '';
+  let str = '';
+  let k = 0;
+  for (let i = 0; i < s2.length; i += 1) {
+    str = s2[i];
+    k = i;
+    for (let j = 0; j < s1.length; j += 1) {
+      if (s1.includes(str)) {
+        if (longestStr.length < str.length) {
+          longestStr = str;
+        }
+        str += s2[k += 1];
+      }
+    }
+  }
+
+  return longestStr;
 }
 
 /*
