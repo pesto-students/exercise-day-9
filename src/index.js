@@ -11,6 +11,9 @@
 */
 
 function hammingDistance(a, b) {
+  if (a.length !== b.length) {
+    throw new Error();
+  }
   return a + b;
 }
 
