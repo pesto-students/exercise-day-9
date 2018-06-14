@@ -14,7 +14,15 @@ function hammingDistance(a, b) {
   if (a.length !== b.length) {
     throw new Error();
   }
-  return a + b;
+
+  const diff = [...a].reduce((result, char, index) => {
+    if (char !== b[index]) {
+      return result + 1;
+    }
+    return result;
+  }, 0);
+
+  return diff;
 }
 
 /*
@@ -70,7 +78,13 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
-  return number;
+  if (number < 2) {
+    return false;
+  }
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) return false;
+  }
+  return true;
 }
 
 module.exports = {
