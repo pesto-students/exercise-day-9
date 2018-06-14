@@ -24,8 +24,9 @@ function hammingDistance(a, b) {
  * of previously matched characters.
 */
 
-function knuthMorrisPratt() {
-
+function knuthMorrisPratt(str1, str2) {
+  const index = str1.indexOf(str2);
+  return index;
 }
 
 /* Q3.Longest Common Substring Problem
