@@ -1,1 +1,33 @@
-Make some complex figures using canvas.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Canvas Solution</title>
+  <script>
+    function renderCanvas() {
+      var canvas = document.getElementById('myCanvas');
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        var readGradient = ctx.createLinearGradient(100, 0, 0, 0);
+
+        readGradient.addColorStop(0, 'white');
+        readGradient.addColorStop(1, 'red');
+        // readGradient.addColorStop(2, 'white');
+
+        ctx.fillStyle = readGradient;
+        ctx.fillRect(0, 0, 100, 100);
+        // ctx.fillRect(100, 0, 100, 100);
+      } else {
+        alert('Your browser does not support canvas');
+      }
+    }
+  </script>
+</head>
+
+<body onload="renderCanvas()">
+  <canvas id="myCanvas" height="500px" width="500px" style="border: 1px solid black;">
+  </canvas>
+</body>
+
+</html>
