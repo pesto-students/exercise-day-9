@@ -50,10 +50,9 @@ function knuthMorrisPratt(a, b) {
 
 function longestCommonSubstring(s1, s2) {
   let longestStr = '';
-  let str = '';
   let k = 0;
   for (let i = 0; i < s2.length; i += 1) {
-    str = s2[i];
+    let str = s2[i];
     k = i;
     for (let j = 0; j < s1.length; j += 1) {
       if (s1.includes(str)) {
