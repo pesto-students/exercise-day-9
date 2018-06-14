@@ -74,7 +74,10 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
-  return number;
+  for (let i = 1; i < number / 2; i + 1) {
+    if (number % i === 0) { return false; }
+  }
+  return true;
 }
 
 module.exports = {

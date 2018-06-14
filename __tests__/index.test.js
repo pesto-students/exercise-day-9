@@ -102,7 +102,7 @@ function primalityTest(testFunction) {
   expect(testFunction(400)).toBeFalsy();
 }
 
-describe('trialDivision', () => {
+describe.only('trialDivision', () => {
   it('should detect prime numbers', () => {
     primalityTest(trialDivision);
   });
