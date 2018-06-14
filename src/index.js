@@ -11,7 +11,16 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error();
+  }
+  let count = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 /*
@@ -24,8 +33,26 @@ function hammingDistance(a, b) {
  * of previously matched characters.
 */
 
-function knuthMorrisPratt() {
-
+function knuthMorrisPratt(str, word) {
+  const wordLength = word.length;
+  let res;
+  for (let i = 0, w = 0; i < str.length; i += 1) {
+    while (w < wordLength &&
+      (word[w] === str[i] || word[0] === str[i])) {
+      if (str[i] === word[0]) {
+        res = i;
+        w = 0;
+      }
+      i += 1;
+      w += 1;
+    }
+    if (w === wordLength) {
+      return res;
+    }
+    w = 0;
+    res = -1;
+  }
+  return res;
 }
 
 /* Q3.Longest Common Substring Problem
