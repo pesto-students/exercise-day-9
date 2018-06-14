@@ -17,9 +17,7 @@ function hammingDistance(a, b) {
   let distance = 0;
   for (let i = 0; i < a.length; i += 1) {
     if (a[i] !== b[i]) {
-      const charDistance = Math.abs(a.charCodeAt(i) - b.charCodeAt(i));
-      distance += charDistance;
-      break;
+      distance += 1;
     }
   }
 
