@@ -8,10 +8,19 @@
  * transformed one string into the other. In a more general context, the Hamming
  * distance is one of several string metrics for measuring the edit distance
  * between two sequences.
-*/
+ */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error('Length must be same');
+  }
+  let hd = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) {
+      hd += 1;
+    }
+  }
+  return hd;
 }
 
 /*
@@ -22,11 +31,9 @@ function hammingDistance(a, b) {
  * observation that when a mismatch occurs, the word itself embodies sufficient
  * information to determine where the next match could begin, thus bypassing re-examination
  * of previously matched characters.
-*/
+ */
 
-function knuthMorrisPratt() {
-
-}
+function knuthMorrisPratt() {}
 
 /* Q3.Longest Common Substring Problem
  * The longest common substring problem is to find the longest string (or strings)
@@ -35,36 +42,58 @@ function knuthMorrisPratt() {
  * Example
  * The longest common substring of the strings ABABC, BABCA and ABCBA is string
  * ABC of length 3. Other common substrings are A, AB, B, BA, BC and C.
-*/
+ */
 
 function longestCommonSubstring(s1, s2) {
   return s1 + s2;
 }
 
 /*
-* Q4. Binary Search
-* In computer science, binary search, also known as half-interval search, logarithmic
-* search, or binary chop, is a search algorithm that finds the position of a target value
-* within a sorted array. Binary search compares the target value to the middle element of
-* the array; if they are unequal, the half in which the target cannot lie is eliminated and
-* the search continues on the remaining half until it is successful. If the search ends with
-* the remaining half being empty, the target is not in the array.
-*
-*/
+ * Q4. Binary Search
+ * In computer science, binary search, also known as half-interval search, logarithmic
+ * search, or binary chop, is a search algorithm that finds the position of a target value
+ * within a sorted array. Binary search compares the target value to the middle element of
+ * the array; if they are unequal, the half in which the target cannot lie is eliminated and
+ * the search continues on the remaining half until it is successful. If the search ends with
+ * the remaining half being empty, the target is not in the array.
+ *
+ */
 
-function binarySearch() {
+function binarySearch(arr, x) { // x can be an object too like {key: 1}
+  let finalArr = [];
+  if (typeof arr[0] !== 'number') {
+    // array of objects
+    finalArr = arr.map(el => el.key);
+  } else {
+    finalArr = arr;
+  }
 
+  let start = 0;
+  let end = finalArr.length - 1;
+  let mid = Math.floor((start + end) / 2);
+
+  while (finalArr[mid] !== x && start < end) {
+    if (x < finalArr[mid]) {
+      end = mid - 1;
+    } else if (x > finalArr[mid]) {
+      start = mid + 1;
+    }
+    mid = Math.floor((end + start) / 2);
+  }
+
+  return (finalArr[mid] !== x) ? -1 : mid;
 }
 
 /*
-* Q5.
-* Primality Test
-* A primality test is an algorithm for determining whether an input number is prime.
-* Among other fields of mathematics, it is used for cryptography. Unlike integer factorization,
-* primality tests do not generally give prime factors, only stating whether the input number
-* is prime or not. Factorization is thought to be a computationally difficult problem, whereas
-* primality testing is comparatively easy (its running time is polynomial in the size of the input).
-*/
+ * Q5.
+ * Primality Test
+ * A primality test is an algorithm for determining whether an input number is prime.
+ * Among other fields of mathematics, it is used for cryptography. Unlike integer factorization,
+ * primality tests do not generally give prime factors, only stating whether the input number
+ * is prime or not. Factorization is thought to be a computationally difficult problem, whereas
+ * primality testing is comparatively easy
+ * (its running time is polynomial in the size of the input).
+ */
 
 function trialDivision(number) {
   return number;
