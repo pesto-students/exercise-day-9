@@ -11,7 +11,16 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error('strings should be of equal length');
+  }
+
+  let dist = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) dist += 1;
+  }
+
+  return dist;
 }
 
 /*
@@ -38,7 +47,22 @@ function knuthMorrisPratt() {
 */
 
 function longestCommonSubstring(s1, s2) {
-  return s1 + s2;
+  if (s1.length < s2.length) return longestCommonSubstring(s2, s1);
+
+  let ret = ''; // holds the longest common substring we've found so far
+
+  for (let i = 0; i < s2.length - 1; i += 1) {
+    for (let j = s2.length; j > i; j -= 1) {
+      if (j - i > ret.length) {
+        const curSubstring = s2.substring(i, j);
+        if (s1.includes(curSubstring) && curSubstring.length >= ret.length) {
+          ret = curSubstring;
+        }
+      }
+    }
+  }
+
+  return ret;
 }
 
 /*
@@ -52,8 +76,19 @@ function longestCommonSubstring(s1, s2) {
 *
 */
 
-function binarySearch() {
+function binarySearch(arr, elem, cmpFn = (a, b) => a - b) {
+  function helper(lIdx, rIdx) {
+    if (lIdx > rIdx) return -1;
 
+    const mIdx = Math.floor((lIdx + rIdx) / 2);
+
+    const cmpResult = cmpFn(arr[mIdx], elem);
+
+    if (cmpResult === 0) return mIdx;
+    if (cmpResult > 0) return helper(lIdx, mIdx - 1);
+    return helper(mIdx + 1, rIdx);
+  }
+  return helper(0, arr.length - 1);
 }
 
 /*
@@ -67,7 +102,14 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
-  return number;
+  if (number < 2) return false;
+  if (number === 2) return true;
+  if (number % 2 === 0) return false;
+
+  for (let i = 3; i * i <= number; i += 2) {
+    if (number % i === 0) return false;
+  }
+  return true;
 }
 
 module.exports = {
