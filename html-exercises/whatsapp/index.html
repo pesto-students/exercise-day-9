@@ -9,8 +9,18 @@ It should open the whatsapp app on mobile and the message should appear in the a
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script>
+      function shareText() {
+        var message = document.getElementById('message').value;
+        window.location = "whatsapp://send?text="+message;
+      }
+    </script>
 </head>
 <body>
-  
+  <form action="shareText()">
+    <label for="message">Enter message to share</label>
+    <textarea id="message" name="message" required></textarea>
+    <button>Share</button>
+  </form>
 </body>
 </html>
