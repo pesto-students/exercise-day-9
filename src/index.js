@@ -47,7 +47,22 @@ function knuthMorrisPratt() {
 */
 
 function longestCommonSubstring(s1, s2) {
-  return s1 + s2;
+  if (s1.length < s2.length) return longestCommonSubstring(s2, s1);
+
+  let ret = ''; // holds the longest common substring we've found so far
+
+  for (let i = 0; i < s2.length - 1; i += 1) {
+    for (let j = s2.length; j > i; j -= 1) {
+      if (j - i > ret.length) {
+        const curSubstring = s2.substring(i, j);
+        if (s1.includes(curSubstring) && curSubstring.length >= ret.length) {
+          ret = curSubstring;
+        }
+      }
+    }
+  }
+
+  return ret;
 }
 
 /*
