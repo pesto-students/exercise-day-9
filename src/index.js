@@ -6,9 +6,33 @@
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
 // Q1. Calculate fibonacci number at specific position using Dynamic Programming approach.
-
+function multiplyMatrix(mat, constMat) {
+  const y = (mat[0][0] * constMat[0][1]) + (mat[0][1] * constMat[1][1]);
+  const x = (mat[0][0] * constMat[0][0]) + (mat[0][1] * constMat[1][0]);
+  const z = (mat[1][0] * constMat[0][0]) + (mat[1][1] * constMat[1][0]);
+  const w = (mat[1][0] * constMat[0][1]) + (mat[1][1] * constMat[1][1]);
+  const test = [[], []];
+  test[0][0] = x;
+  test[0][1] = y;
+  test[1][0] = z;
+  test[1][1] = w;
+  return test;
+}
+function powerMatrix(mat, n) {
+  let matConst = [[1, 1], [1, 0]];
+  for (let i = 2; i <= n; i += 1) {
+    matConst = multiplyMatrix(mat, matConst);
+  }
+  return matConst;
+}
 function fibonacci(position) {
-  return position;
+  if (position === 0) {
+    return 0;
+  } else if (position === 1) {
+    return 1;
+  }
+  const test = powerMatrix([[1, 1], [1, 0]], position - 1);
+  return test[0][0];
 }
 
 // Q2. Compute the least common multiple
