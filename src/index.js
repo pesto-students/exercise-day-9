@@ -11,7 +11,16 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error('Strings must be of same length');
+  }
+  let distance = 0;
+
+  Array.from(a).forEach((element, index) => {
+    distance += (element !== b[index]) ? 1 : 0;
+  });
+
+  return distance;
 }
 
 /*
