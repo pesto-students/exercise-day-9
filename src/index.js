@@ -85,6 +85,12 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
+  if (number <= 1) {
+    return false;
+  }
+  if (number % 2 === 0 || number % 3 === 0) {
+    return number;
+  }
   return number;
 }
 
