@@ -11,7 +11,16 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error('strings should be of equal length');
+  }
+
+  let dist = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) dist += 1;
+  }
+
+  return dist;
 }
 
 /*
