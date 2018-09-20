@@ -11,7 +11,16 @@
 */
 
 function hammingDistance(a, b) {
-  return a + b;
+  if (a.length !== b.length) {
+    throw new Error('Strings must be of same length');
+  }
+  let distance = 0;
+
+  Array.from(a).forEach((element, index) => {
+    distance += (element !== b[index]) ? 1 : 0;
+  });
+
+  return distance;
 }
 
 /*
@@ -24,8 +33,17 @@ function hammingDistance(a, b) {
  * of previously matched characters.
 */
 
-function knuthMorrisPratt() {
-
+function knuthMorrisPratt(text, word) {
+  return text.indexOf(word);
+  // let index = -1;
+  // Array.from(text).forEach((element, ind) => {
+  //   if (element === word[0] && text.slice(ind, word.length) === word) {
+  //     index = ind;
+  //     return false;
+  //   }
+  //   return true;
+  // });
+  // return index;
 }
 
 /* Q3.Longest Common Substring Problem
@@ -67,6 +85,12 @@ function binarySearch() {
 */
 
 function trialDivision(number) {
+  if (number <= 1) {
+    return false;
+  }
+  if (number % 2 === 0 || number % 3 === 0) {
+    return number;
+  }
   return number;
 }
 
