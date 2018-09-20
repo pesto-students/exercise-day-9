@@ -61,8 +61,19 @@ function longestCommonSubstring(s1, s2) {
 *
 */
 
-function binarySearch() {
+function binarySearch(arr, elem, cmpFn = (a, b) => a - b) {
+  function helper(lIdx, rIdx) {
+    if (lIdx > rIdx) return -1;
 
+    const mIdx = Math.floor((lIdx + rIdx) / 2);
+
+    const cmpResult = cmpFn(arr[mIdx], elem);
+
+    if (cmpResult === 0) return mIdx;
+    if (cmpResult > 0) return helper(lIdx, mIdx - 1);
+    return helper(mIdx + 1, rIdx);
+  }
+  return helper(0, arr.length - 1);
 }
 
 /*
