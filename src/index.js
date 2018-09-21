@@ -95,7 +95,15 @@ function binarySearch(arr, x) { // x can be an object too like {key: 1}
  * (its running time is polynomial in the size of the input).
  */
 function trialDivision(number) {
-  return number;
+  // using trial division
+  // eslint-disable-next-line
+  const sqrtNumber = Math.pow(number, 0.5);
+  for (let i = 2; i <= sqrtNumber; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 module.exports = {
